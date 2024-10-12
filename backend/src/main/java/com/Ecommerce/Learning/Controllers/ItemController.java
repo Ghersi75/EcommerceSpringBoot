@@ -2,6 +2,7 @@ package com.Ecommerce.Learning.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,7 @@ public class ItemController {
   }
 
   @GetMapping("/{item_id}")
-  public Item GetItemById(Long item_id) {
+  public Item GetItemById(@PathVariable Long item_id) {
     return this.itemService.GetItemById(item_id);
   }
 }

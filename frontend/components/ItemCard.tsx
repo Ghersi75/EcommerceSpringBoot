@@ -36,6 +36,9 @@ export default function ItemCard({ data }: { data: Data }) {
           className={`w-[400px] h-[200px] object-contain transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"}`} 
         />
         <p>{imageIndex}</p>
+        {
+          // TODO: Add logic to only show arrows if there is more than 1 picture, otherwise dont
+        }
         <div
           className="absolute top-1/2 transform -translate-y-1/2 left-[8px] bg-black w-[20px] h-[20px] rounded-full cursor-pointer"
           onClick={handleLeftImageScroll}

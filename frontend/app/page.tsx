@@ -4,11 +4,11 @@ import ItemCard from "@/components/ItemCard";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-interface Data {
-  id: String,
-  title: String,
-  description: String,
-  imageLink: String
+export interface Data {
+  id: string,
+  title: string,
+  description: string,
+  imageLink: string
 }
 
 export default function Home() {
@@ -27,10 +27,10 @@ export default function Home() {
 
 
   return (
-    <div className="p-4 w-svw h-svh flex items-center justify-center">
-      {data.map((item) => {
+    <div className="p-4 w-svw flex items-center justify-start gap-4">
+      {data.map((item, id) => {
         return (
-          <div> {item.id} </div>
+          <ItemCard data={item} key={id} />
         )
       })}
     </div>

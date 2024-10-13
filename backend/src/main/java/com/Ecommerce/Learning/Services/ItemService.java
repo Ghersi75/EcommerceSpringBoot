@@ -1,5 +1,7 @@
 package com.Ecommerce.Learning.Services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,9 @@ public class ItemService {
 
   public Item GetItemById(Long id) {
     return this.itemRepository.findById(id).orElse(null);
+  }
+
+  public List<Item> GetAllItems() {
+    return this.itemRepository.findAll();
   }
 }

@@ -4,11 +4,25 @@ import ItemCard from "@/components/ItemCard";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+
+export interface Image {
+  "id": number,
+  "imageLink": string,
+  "displayOrder": number
+}
 export interface Data {
   id: string,
   title: string,
   description: string,
-  imageLink: string
+  images: Image[]
+}
+
+const compareImageOrder = (image1: Image, image2: Image) => {
+  if ( image1.displayOrder < image2.displayOrder ) {
+    return -1;
+  } else {
+    return 1
+  }
 }
 
 export default function Home() {
@@ -17,9 +31,10 @@ export default function Home() {
   useEffect(() => { 
     async function FetchItems() {
       let res = await fetch("http://localhost:8080/items")
-      let data = await res.json()
-      console.log(data)
-      setData(data)
+      let resultData = await res.json()
+      console.log(resultData)
+      resultData.sort(compareImageOrder)
+      setData(resultData)
     }
 
     FetchItems()

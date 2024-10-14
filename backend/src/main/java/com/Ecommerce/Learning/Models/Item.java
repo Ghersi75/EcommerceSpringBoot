@@ -1,12 +1,19 @@
 package com.Ecommerce.Learning.Models;
 
-import jakarta.persistence.Column;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
+// import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+// https://www.baeldung.com/jpa-join-column for reference
 @Entity
 @Table(name = "store_item")
 public class Item {
@@ -17,18 +24,18 @@ public class Item {
   private String title;
   private String description;
 
-  @Column(name = "image_link")
-  private String imageLink;
-
+  @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+  // https://stackoverflow.com/questions/31319358/jsonmanagedreference-vs-jsonbackreference for reference
+  // Prevents infinite recurion when Item has ItemImages and ItemImages have Item forever
+  @JsonManagedReference
+  private List<ItemImage> images;
 
   public Item() { }
 
-  public Item(String title, String description, String imageLink) {
+  public Item(String title, String description) {
     this.title = title;
     this.description = description;
-    this.imageLink = imageLink;
   }
-
 
   public Long getId() {
     return this.id;
@@ -54,13 +61,14 @@ public class Item {
     this.description = description;
   }
 
-  public String getImageLink() {
-    return this.imageLink;
+  public List<ItemImage> getImages() {
+    return this.images;
   }
 
-  public void setImageLink(String imageLink) {
-    this.imageLink = imageLink;
+  public void setImages(List<ItemImage> images) {
+    this.images = images;
   }
+
 
   @Override
   public String toString() {
@@ -68,7 +76,6 @@ public class Item {
       " id='" + getId() + "'" +
       ", title='" + getTitle() + "'" +
       ", description='" + getDescription() + "'" +
-      ", imageLink='" + getImageLink() + "'" +
       "}";
   }
 

@@ -20,7 +20,7 @@ public class ItemImage {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "image_link")
+  @Column(name = "image_link", columnDefinition = "TEXT")
   private String imageLink;
 
   @Column(name = "display_order")

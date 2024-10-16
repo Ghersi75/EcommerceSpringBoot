@@ -14,6 +14,8 @@ export default function useFetchItems()  {
       try {
         let res = await fetch(allItemsEndpoint)
         let resultData = await res.json()
+        // Not sure why this doesnt throw an error since ItemData doesnt have displayOrder yet, but whatever
+        // TODO: Fix this
         resultData.sort(compareDisplayOrder)
         setData(resultData)
 

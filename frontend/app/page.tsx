@@ -1,39 +1,18 @@
 "use client";
 
 import ItemCard from "@/components/ItemCard";
-import Image from "next/image";
+import { ItemData } from "@/lib/types/StoreItemTypes";
+import { compareDisplayOrder } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
-
-export interface Image {
-  "id": number,
-  "imageLink": string,
-  "displayOrder": number
-}
-export interface Data {
-  id: string,
-  title: string,
-  description: string,
-  images: Image[]
-}
-
-const compareImageOrder = (image1: Image, image2: Image) => {
-  if ( image1.displayOrder < image2.displayOrder ) {
-    return -1;
-  } else {
-    return 1
-  }
-}
-
 export default function Home() {
-  const [data, setData] = useState<Data[]>([])
+  const [data, setData] = useState<ItemData[]>([])
 
   useEffect(() => { 
     async function FetchItems() {
       let res = await fetch("http://localhost:8080/items")
       let resultData = await res.json()
-      console.log(resultData)
-      resultData.sort(compareImageOrder)
+      resultData.sort(compareDisplayOrder)
       setData(resultData)
     }
 

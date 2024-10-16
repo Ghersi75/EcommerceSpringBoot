@@ -1,11 +1,11 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardImage, CardImageContainer, CardTitle } from "./shadcn/card";
-import { Data } from "@/app/page";
+import { ItemData } from "@/lib/types/StoreItemTypes";
 import { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./shadcn/carousel";
 
 const placeholderImageLink = "https://cdn4.vectorstock.com/i/1000x1000/93/98/default-placeholder-fitness-trainer-in-a-t-shirt-vector-21189398.jpg"
 
-export default function ItemCard({ data }: { data: Data }) {
+export default function ItemCard({ data }: { data: ItemData }) {
   return (
     <Card className="w-[400px]">
       <CardImageContainer>

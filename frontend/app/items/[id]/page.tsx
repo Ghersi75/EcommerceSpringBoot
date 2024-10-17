@@ -22,9 +22,8 @@ export default function ViewItem({ params }: { params: { id: number } }) {
 
   // No need to worry about data being empty and having a bunch of ????????????????? here
   return (
-    <div>
-      {data.title}
-      {data.description}
+    <div className="flex-1 flex-col h-full w-3/4 bg-red-500">
+
     </div>
   )
 }

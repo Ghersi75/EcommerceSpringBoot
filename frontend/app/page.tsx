@@ -15,7 +15,7 @@ export default function Home() {
     <>
     {/* TODO Create a scheleton component for loading */}
       {isLoading  ? <div> loading </div> :
-        <div className="p-4 w-svw flex items-center justify-start gap-4">
+        <div className="p-4 w-svw flex flex-1 items-start justify-center gap-4">
           {data.map((item, id) => {
             return (
               <ItemCard data={item} key={id} />

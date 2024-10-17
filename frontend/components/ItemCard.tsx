@@ -2,6 +2,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardImage, 
 import { ItemData } from "@/lib/types/StoreItemTypes";
 import { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./shadcn/carousel";
+import { Button } from "./shadcn/button";
+import Link from "next/link";
 
 const placeholderImageLink = "https://cdn4.vectorstock.com/i/1000x1000/93/98/default-placeholder-fitness-trainer-in-a-t-shirt-vector-21189398.jpg"
 
@@ -44,8 +46,10 @@ export default function ItemCard({ data }: { data: ItemData }) {
         <CardTitle>{data.title}</CardTitle>
         <CardDescription>{data.description}</CardDescription>
       </CardHeader>
-      <CardFooter>
-        <p>Buy Now</p>
+      <CardFooter className="flex justify-end">
+        <Link href={`/items/${data.id}`}>
+          <Button> View More </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

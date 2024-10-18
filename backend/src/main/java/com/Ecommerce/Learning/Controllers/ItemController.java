@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Ecommerce.Learning.DTOs.TestDTO;
 import com.Ecommerce.Learning.Models.Item;
 import com.Ecommerce.Learning.Services.ItemService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/items")
@@ -31,4 +34,10 @@ public class ItemController {
   public List<Item> GetAllItemsHandler() {
     return this.itemService.GetAllItems();
   }
+
+  @GetMapping("/noimages")
+  public List<TestDTO> getAllitemsWithoutImagTestDTOs() {
+      return this.itemService.GetAllItemsWithoutImages();
+  }
+  
 }

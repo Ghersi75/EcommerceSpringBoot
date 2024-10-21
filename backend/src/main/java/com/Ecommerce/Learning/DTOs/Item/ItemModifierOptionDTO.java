@@ -4,11 +4,11 @@ import java.util.List;
 
 import com.Ecommerce.Learning.Models.ItemModifierOptionImage;
 
-public class ModifierOptionDTO extends ModifierOptionDTOWithoutRelationship {
+public class ItemModifierOptionDTO extends ItemModifierOptionDTOWithoutRelationship {
   private List<ItemModifierOptionImage> ItemModifierOptionImages;
 
 
-  public ModifierOptionDTO(long id, String name, String thumbnailImageLink, Integer displayOrder, List<ItemModifierOptionImage> ItemModifierOptionImages) {
+  public ItemModifierOptionDTO(long id, String name, String thumbnailImageLink, Integer displayOrder, List<ItemModifierOptionImage> ItemModifierOptionImages) {
     super(id, name, thumbnailImageLink, displayOrder);
     this.ItemModifierOptionImages = ItemModifierOptionImages;
   }

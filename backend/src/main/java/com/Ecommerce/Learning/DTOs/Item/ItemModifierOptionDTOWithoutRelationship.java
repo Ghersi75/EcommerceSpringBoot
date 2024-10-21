@@ -1,12 +1,12 @@
 package com.Ecommerce.Learning.DTOs.Item;
 
-public class ModifierOptionDTOWithoutRelationship {
+public class ItemModifierOptionDTOWithoutRelationship {
   private long id;
   private String name;
   private String thumbnailImageLink;
   private Integer displayOrder;
 
-  public ModifierOptionDTOWithoutRelationship(long id, String name, String thumbnailImageLink, Integer displayOrder) {
+  public ItemModifierOptionDTOWithoutRelationship(long id, String name, String thumbnailImageLink, Integer displayOrder) {
     this.id = id;
     this.name = name;
     this.thumbnailImageLink = thumbnailImageLink;

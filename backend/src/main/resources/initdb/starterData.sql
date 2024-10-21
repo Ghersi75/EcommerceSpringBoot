@@ -1,50 +1,50 @@
 CREATE TABLE store_item (
   id SERIAL PRIMARY KEY,
   title VARCHAR(50) NOT NULL,
-  description VARCHAR(255) NOT NULL
-  display_order INT NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  display_order INT NOT NULL
 );
 
 -- Modifier category. Classic Shirts, Seasonal Shirts, etc.
-CREATE TABLE item_modifier {
+CREATE TABLE item_modifier (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   item_id INT REFERENCES store_item(id) not null,
-  display_order INT NOT NULL,
-}
+  display_order INT NOT NULL
+);
 
 -- Modifier options. Red Classic Shirt, Blue Classic Shirt, Halloween Seasonal Shirt
-CREATE TABLE item_modifier_option {
+CREATE TABLE item_modifier_option (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   modifier_id INT REFERENCES item_modifier(id) NOT NULL,
   -- May be changed later to just pull item_modifier_image with displayOrder 0
-  thumbnail_image_link TEXT NOT NULL
+  thumbnail_image_link TEXT NOT NULL,
   display_order INT NOT NULL
-}
+);
 
 -- All Images associated with each option above. Red Classic Shirt will have different options than
-CREATE TABLE item_modifier_option_image {
+CREATE TABLE item_modifier_option_image (
   id SERIAL PRIMARY KEY,
   item_id INT REFERENCES store_item(id) NOT NULL,
   modifier_option_id INT REFERENCES item_modifier_option(id) NOT NULL,
   image_link TEXT NOT NULL,
   display_order INT NOT NULL
-}
+);
 
 -- All items will have some sort of sizes
-CREATE TABLE size {
+CREATE TABLE size (
   id SERIAL PRIMARY KEY,
   size_name VARCHAR(20) NOT NULL
-}
+);
 
 -- Keep track of stock for each option and size
-CREATE TABLE modifier_option_size_stock {
+CREATE TABLE modifier_option_size_stock (
   id SERIAL PRIMARY KEY,
   size__id INT REFERENCES size(id) NOT NULL,
   item_option_id INT REFERENCES item_modifier_option(id) NOT NULL,
   available INT NOT NULL DEFAULT 0
-}
+);
 
 -- Old table, will get removed once the rest works
 CREATE TABLE store_item_image (
@@ -57,10 +57,10 @@ CREATE TABLE store_item_image (
 
 
 -- Insert store items
-INSERT INTO store_item (title, description)
-  VALUES  ('Classic Shirt', 'Our most popular shirt made of 100% finest quality cotton'),
-          ('Basic Shirt', 'Our most basic shirt made of polyester'),
-          ('Basic No Picture Shirt', 'Our most basic blue shirt made of cotton');
+INSERT INTO store_item (title, description, display_order)
+  VALUES  ('Classic Shirt', 'Our most popular shirt made of 100% finest quality cotton', 0),
+          ('Basic Shirt', 'Our most basic shirt made of polyester', 1),
+          ('Basic No Picture Shirt', 'Our most basic blue shirt made of cotton', 2);
 -- Shirt 1 Classics, Shirt 1 Seasonal, Shirt 2 Classics, Shirt 2 Seasonal
 INSERT INTO item_modifier (name, item_id, display_order) 
   VALUES  ('Classics', 1, 0),

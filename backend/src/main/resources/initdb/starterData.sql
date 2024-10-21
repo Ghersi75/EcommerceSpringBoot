@@ -57,13 +57,26 @@ CREATE TABLE store_item_image (
 
 
 -- Insert store items
-INSERT INTO store_item (title, description) 
+INSERT INTO store_item (title, description)
   VALUES  ('Classic Shirt', 'Our most popular shirt made of 100% finest quality cotton'),
           ('Basic Shirt', 'Our most basic shirt made of polyester'),
           ('Basic No Picture Shirt', 'Our most basic blue shirt made of cotton');
-
-INSERT INTO item_modifier (name, item_id, thumbnail_image_link, display_order) 
-  VALUES ()
+-- Shirt 1 Classics, Shirt 1 Seasonal, Shirt 2 Classics, Shirt 2 Seasonal
+INSERT INTO item_modifier (name, item_id, display_order) 
+  VALUES  ('Classics', 1, 0),
+          ('Seasonal', 1, 1),
+          ('Classics', 2, 0),
+          ('Seasonal', 2, 1);
+-- Shirt 1 Classics Red and Black, Shirt 1 Seasonal Halloween and Christmas, Shirt 2 Classics Red and Black, Shirt 2 Halloween and Christmas
+INSERT INTO item_modifier_option (name, modifier_id, display_order, thumbnail_image_link)
+  VALUES  ('Red', 1, 0, 'https://image.similarpng.com/very-thumbnail/2020/12/Realistic-Red-shirt-for-men-on-transparent-background-PNG-1.png'),
+          ('Black', 1, 1, 'https://i.pinimg.com/736x/2e/88/a5/2e88a52be17ccbce0306aae0a295138c.jpg'),
+          ('Halloween', 2, 0, 'https://ih1.redbubble.net/image.4365502368.5410/ssrco,slim_fit_t_shirt,flatlay,101010:01c5ca27c6,front,wide_portrait,750x1000-bg,f8f8f8.jpg'),
+          ('Christmas', 2, 1, 'https://static.vecteezy.com/system/resources/previews/001/868/599/non_2x/children-playing-with-snowman-in-christmas-theme-on-t-shirt-on-transparent-background-free-vector.jpg'),
+          ('Red', 3, 0, 'https://img.freepik.com/premium-psd/red-tshirt-front-view-mockup-image-png_584197-1676.jpg?semt=ais_hybrid'),
+          ('Black', 3, 1, 'https://img.freepik.com/free-psd/plain-black-tshirt-transparent-background_125540-4055.jpg'),
+          ('Halloween', 4, 0, 'https://i5.walmartimages.com/seo/Black-Halloween-TShirt-with-Glowing-Orange-O-Face-Design-Kids-Adults-Graphic-Tee-Print-on-Demand-No-Background_ede89872-4478-48fb-8c72-3eed27a82db2.80476f9d7aa2d26aabee49f75e9575b2.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF'),
+          ('Christmas', 4, 1, 'https://i.etsystatic.com/35806090/r/il/ba3529/5571871615/il_570xN.5571871615_5n0l.jpg');
 
 -- Insert images for store items
 INSERT INTO store_item_image (store_item_id, image_link, display_order) 

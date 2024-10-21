@@ -30,11 +30,14 @@ public class Item {
   @JsonManagedReference
   private List<ItemImage> images;
 
-  public Item() { }
+  private int displayOrder;
 
-  public Item(String title, String description) {
+  public Item(Long id, String title, String description, List<ItemImage> images, int displayOrder) {
+    this.id = id;
     this.title = title;
     this.description = description;
+    this.images = images;
+    this.displayOrder = displayOrder;
   }
 
   public Long getId() {
@@ -69,6 +72,13 @@ public class Item {
     this.images = images;
   }
 
+  public int getDisplayOrder() {
+    return this.displayOrder;
+  }
+
+  public void setDisplayOrder(int displayOrder) {
+    this.displayOrder = displayOrder;
+  }
 
   @Override
   public String toString() {
@@ -76,7 +86,10 @@ public class Item {
       " id='" + getId() + "'" +
       ", title='" + getTitle() + "'" +
       ", description='" + getDescription() + "'" +
+      ", images='" + getImages() + "'" +
+      ", displayOrder='" + getDisplayOrder() + "'" +
       "}";
   }
+
 
 }

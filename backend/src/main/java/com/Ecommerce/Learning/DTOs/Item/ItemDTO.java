@@ -3,19 +3,19 @@ package com.Ecommerce.Learning.DTOs.Item;
 import java.util.List;
 
 public class ItemDTO extends ItemDTOWithoutRelationship {
-  private List<ModifierDTO> modifiers;
+  private List<ItemModifierDTO> itemModifiers;
 
-  public ItemDTO(long id, String title, String description, int displayOrder, List<ModifierDTO> modifiers) {
+  public ItemDTO(long id, String title, String description, int displayOrder, List<ItemModifierDTO> modifiers) {
     super(id, title, description, displayOrder);
-    this.modifiers = modifiers;
+    this.itemModifiers = modifiers;
   }
 
-  public List<ModifierDTO> getModifiers() {
-    return this.modifiers;
+  public List<ItemModifierDTO> getItemModifiers() {
+    return this.itemModifiers;
   }
 
-  public void setModifiers(List<ModifierDTO> modifiers) {
-    this.modifiers = modifiers;
+  public void setItemModifiers(List<ItemModifierDTO> itemModifiers) {
+    this.itemModifiers = itemModifiers;
   }
 
   @Override
@@ -25,7 +25,8 @@ public class ItemDTO extends ItemDTOWithoutRelationship {
       ", title='" + getTitle() + "'" +
       ", description='" + getDescription() + "'" +
       ", displayOrder='" + getDisplayOrder() + "'" +
-      " modifiers='" + getModifiers() + "'" +
+      " itemModifiers='" + getItemModifiers() + "'" +
       "}";
   }
+
 }

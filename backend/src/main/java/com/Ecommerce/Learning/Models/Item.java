@@ -24,6 +24,7 @@ public class Item {
   private String title;
   private String description;
 
+  // mappedBy refers to the Item object in the ItemImage class
   @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
   // https://stackoverflow.com/questions/31319358/jsonmanagedreference-vs-jsonbackreference for reference
   // Prevents infinite recurion when Item has ItemImages and ItemImages have Item forever

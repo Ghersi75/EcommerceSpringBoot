@@ -27,6 +27,7 @@ public class ItemImage {
   private Integer displayOrder;
 
   @ManyToOne(fetch = FetchType.LAZY)
+  // name refers to the field name of the foreign key in the database, in this case, in the store_item_image table, store_item_id is the foreign key field name
   @JoinColumn(name = "store_item_id", nullable = false)
   // https://stackoverflow.com/questions/31319358/jsonmanagedreference-vs-jsonbackreference for reference
   // Prevents infinite recurion when Item has ItemImages and ItemImages have Item forever

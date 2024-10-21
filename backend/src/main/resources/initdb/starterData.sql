@@ -10,8 +10,6 @@ CREATE TABLE item_modifier {
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   item_id INT REFERENCES store_item(id) not null,
-  -- May be changed later to just pull item_modifier_image with displayOrder 0
-  thumbnail_image_link TEXT NOT NULL
   display_order INT NOT NULL,
 }
 
@@ -20,6 +18,8 @@ CREATE TABLE item_modifier_option {
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   modifier_id INT REFERENCES item_modifier(id) NOT NULL,
+  -- May be changed later to just pull item_modifier_image with displayOrder 0
+  thumbnail_image_link TEXT NOT NULL
   display_order INT NOT NULL
 }
 
@@ -61,6 +61,9 @@ INSERT INTO store_item (title, description)
   VALUES  ('Classic Shirt', 'Our most popular shirt made of 100% finest quality cotton'),
           ('Basic Shirt', 'Our most basic shirt made of polyester'),
           ('Basic No Picture Shirt', 'Our most basic blue shirt made of cotton');
+
+INSERT INTO item_modifier (name, item_id, thumbnail_image_link, display_order) 
+  VALUES ()
 
 -- Insert images for store items
 INSERT INTO store_item_image (store_item_id, image_link, display_order) 

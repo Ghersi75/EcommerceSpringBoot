@@ -29,7 +29,7 @@ public class Item {
   // https://stackoverflow.com/questions/31319358/jsonmanagedreference-vs-jsonbackreference for reference
   // Prevents infinite recurion when Item has ItemImages and ItemImages have Item forever
   @JsonManagedReference
-  private List<ItemImage> images;
+  private List<ItemModifier> itemModifiers;
 
   private int displayOrder;
 
@@ -39,7 +39,7 @@ public class Item {
     this.id = id;
     this.title = title;
     this.description = description;
-    this.images = images;
+    this.itemModifiers = itemModifiers;
     this.displayOrder = displayOrder;
   }
 
@@ -67,12 +67,12 @@ public class Item {
     this.description = description;
   }
 
-  public List<ItemImage> getImages() {
-    return this.images;
+  public List<ItemModifier> getItemModifiers() {
+    return this.itemModifiers;
   }
 
-  public void setImages(List<ItemImage> images) {
-    this.images = images;
+  public void setItemModifiers(List<ItemModifier> itemModifiers) {
+    this.itemModifiers = itemModifiers;
   }
 
   public int getDisplayOrder() {
@@ -89,10 +89,9 @@ public class Item {
       " id='" + getId() + "'" +
       ", title='" + getTitle() + "'" +
       ", description='" + getDescription() + "'" +
-      ", images='" + getImages() + "'" +
+      ", itemModifiers='" + getItemModifiers() + "'" +
       ", displayOrder='" + getDisplayOrder() + "'" +
       "}";
   }
-
 
 }

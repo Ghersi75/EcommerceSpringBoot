@@ -3,6 +3,8 @@ CREATE TABLE store_item (
   title VARCHAR(50) NOT NULL,
   description VARCHAR(255) NOT NULL,
   display_order INT NOT NULL
+  -- TODO: Maybe add a thumbnail here for the main page
+  -- Surprised I didn't think about this earlier, now frontend is gonna be broken 😭
 );
 
 -- Modifier category. Classic Shirts, Seasonal Shirts, etc.

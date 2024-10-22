@@ -33,7 +33,9 @@ public class Item {
 
   private int displayOrder;
 
-  public Item(Long id, String title, String description, List<ItemImage> images, int displayOrder) {
+  public Item() { }
+
+  public Item(Long id, String title, String description, List<ItemModifier> itemModifiers, int displayOrder) {
     this.id = id;
     this.title = title;
     this.description = description;

@@ -38,6 +38,7 @@ public class ItemModifierOptionImage {
   @JsonBackReference
   private ItemModifierOption itemModifierOption;
 
+  public ItemModifierOptionImage() { }
 
   public ItemModifierOptionImage(Long id, String imageLink, Integer displayOrder, Item item, ItemModifierOption itemModifierOption) {
     this.id = id;

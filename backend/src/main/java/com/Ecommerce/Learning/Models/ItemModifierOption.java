@@ -41,6 +41,8 @@ public class ItemModifierOption {
   @JsonManagedReference
   private List<ItemModifierOptionImage> itemModifierOptionImages;
 
+  public ItemModifierOption() { }
+
   public ItemModifierOption(long id, String name, String thumbnailImageLink, Integer displayOrder, ItemModifier itemModifier, List<ItemModifierOptionImage> itemModifierOptionImages) {
     this.id = id;
     this.name = name;

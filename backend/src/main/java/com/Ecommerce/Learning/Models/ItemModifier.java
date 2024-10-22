@@ -38,6 +38,8 @@ public class ItemModifier {
   @JsonManagedReference
   private List<ItemModifierOption> itemModifierOptions;
 
+  public ItemModifier() { }
+
   public ItemModifier(long id, String name, Integer displayOrder, Item item, List<ItemModifierOption> itemModifierOptions) {
     this.id = id;
     this.name = name;

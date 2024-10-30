@@ -7,8 +7,9 @@ services:
     environment:
       POSTGRES_DB: ecommerce
       POSTGRES_USER: user
-      POSTGRES_PASSWORD: userpassword
+      POSTGRES_PASSWORD: password
     ports:
-      - "5432:5432"
+    # Forward host port 5433 to docker port 5432 just in case of local conflicts
+      - "5433:5432"
     volumes:
       - ./src/main/resources/initdb:/docker-entrypoint-initdb.d

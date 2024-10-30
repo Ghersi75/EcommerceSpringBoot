@@ -11,10 +11,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 // https://www.baeldung.com/jpa-join-column for reference
 @Entity
 @Table(name = "store_item_image")
+@Data
 public class ItemImage {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,55 +35,4 @@ public class ItemImage {
   // Prevents infinite recurion when Item has ItemImages and ItemImages have Item forever
   @JsonBackReference
   private Item item;
-
-  public ItemImage() { }
-
-  public ItemImage(Long id, String imageLink, Integer displayOrder, Item item) {
-    this.id = id;
-    this.imageLink = imageLink;
-    this.displayOrder = displayOrder;
-    this.item = item;
-  }
-
-  public Long getId() {
-    return this.id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getImageLink() {
-    return this.imageLink;
-  }
-
-  public void setImageLink(String imageLink) {
-    this.imageLink = imageLink;
-  }
-
-  public Integer getDisplayOrder() {
-    return this.displayOrder;
-  }
-
-  public void setDisplayOrder(Integer displayOrder) {
-    this.displayOrder = displayOrder;
-  }
-
-  public Item getItem() {
-    return this.item;
-  }
-
-  public void setItem(Item item) {
-    this.item = item;
-  }
-
-  @Override
-  public String toString() {
-    return "{" +
-      " id='" + getId() + "'" +
-      ", imageLink='" + getImageLink() + "'" +
-      ", displayOrder='" + getDisplayOrder() + "'" +
-      ", item='" + getItem() + "'" +
-      "}";
-  }
 }

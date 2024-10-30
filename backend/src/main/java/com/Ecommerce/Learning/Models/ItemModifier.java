@@ -16,9 +16,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name = "item_modifier")
+@Data
 public class ItemModifier {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,65 +39,4 @@ public class ItemModifier {
   @OneToMany(mappedBy = "itemModifier", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonManagedReference
   private List<ItemModifierOption> itemModifierOptions;
-
-  public ItemModifier() { }
-
-  public ItemModifier(long id, String name, Integer displayOrder, Item item, List<ItemModifierOption> itemModifierOptions) {
-    this.id = id;
-    this.name = name;
-    this.displayOrder = displayOrder;
-    this.item = item;
-    this.itemModifierOptions = itemModifierOptions;
-  }
-
-  public long getId() {
-    return this.id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getDisplayOrder() {
-    return this.displayOrder;
-  }
-
-  public void setDisplayOrder(Integer displayOrder) {
-    this.displayOrder = displayOrder;
-  }
-
-  public Item getItem() {
-    return this.item;
-  }
-
-  public void setItem(Item item) {
-    this.item = item;
-  }
-
-  public List<ItemModifierOption> getItemModifierOptions() {
-    return this.itemModifierOptions;
-  }
-
-  public void setItemModifierOptions(List<ItemModifierOption> itemModifierOptions) {
-    this.itemModifierOptions = itemModifierOptions;
-  }
-
-  @Override
-  public String toString() {
-    return "{" +
-      " id='" + getId() + "'" +
-      ", name='" + getName() + "'" +
-      ", displayOrder='" + getDisplayOrder() + "'" +
-      ", item='" + getItem() + "'" +
-      ", itemModifierOptions='" + getItemModifierOptions() + "'" +
-      "}";
-  }
 }

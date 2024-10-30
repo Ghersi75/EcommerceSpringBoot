@@ -2,6 +2,15 @@ package com.Ecommerce.Learning.DTOs.Item;
 
 import java.util.List;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class ItemDTO extends ItemDTOWithoutRelationship {
   private List<ItemModifierDTO> itemModifiers;
 
@@ -9,24 +18,4 @@ public class ItemDTO extends ItemDTOWithoutRelationship {
     super(id, title, description, displayOrder);
     this.itemModifiers = modifiers;
   }
-
-  public List<ItemModifierDTO> getItemModifiers() {
-    return this.itemModifiers;
-  }
-
-  public void setItemModifiers(List<ItemModifierDTO> itemModifiers) {
-    this.itemModifiers = itemModifiers;
-  }
-
-  @Override
-  public String toString() {
-    return "{" +
-      " id='" + getId() + "'" +
-      ", title='" + getTitle() + "'" +
-      ", description='" + getDescription() + "'" +
-      ", displayOrder='" + getDisplayOrder() + "'" +
-      " itemModifiers='" + getItemModifiers() + "'" +
-      "}";
-  }
-
 }

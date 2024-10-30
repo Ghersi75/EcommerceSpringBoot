@@ -12,10 +12,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 // https://www.baeldung.com/jpa-join-column for reference
 @Entity
 @Table(name = "store_item")
+@Data
 public class Item {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,66 +34,4 @@ public class Item {
   private List<ItemModifier> itemModifiers;
 
   private int displayOrder;
-
-  public Item() { }
-
-  public Item(Long id, String title, String description, List<ItemModifier> itemModifiers, int displayOrder) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.itemModifiers = itemModifiers;
-    this.displayOrder = displayOrder;
-  }
-
-  public Long getId() {
-    return this.id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public List<ItemModifier> getItemModifiers() {
-    return this.itemModifiers;
-  }
-
-  public void setItemModifiers(List<ItemModifier> itemModifiers) {
-    this.itemModifiers = itemModifiers;
-  }
-
-  public int getDisplayOrder() {
-    return this.displayOrder;
-  }
-
-  public void setDisplayOrder(int displayOrder) {
-    this.displayOrder = displayOrder;
-  }
-
-  @Override
-  public String toString() {
-    return "{" +
-      " id='" + getId() + "'" +
-      ", title='" + getTitle() + "'" +
-      ", description='" + getDescription() + "'" +
-      ", itemModifiers='" + getItemModifiers() + "'" +
-      ", displayOrder='" + getDisplayOrder() + "'" +
-      "}";
-  }
-
 }

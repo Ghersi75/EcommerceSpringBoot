@@ -15,33 +15,13 @@ export default function ItemCard({ data }: { data: ItemData }) {
       <CardImageContainer>
         <Carousel className="relative">
           <CarouselContent>
-            {
-              data.images.length == 0 &&
-              <CarouselItem>
-                <CardImage
-                  src={placeholderImageLink}
-                  className={`w-[400px] h-[200px] object-contain`}
-                />
-              </CarouselItem>
-            }
-            {data.images.map((item, idx) => {
-              return (
-                <CarouselItem key={idx}>
-                  <CardImage
-                    src={item.imageLink}
-                    className={`w-[400px] h-[200px] object-contain`}
-                  />
-                </CarouselItem>
-              )
-            })}
+            <CarouselItem>
+              <CardImage
+                src={placeholderImageLink}
+                className={`w-[400px] h-[200px] object-contain`}
+              />
+            </CarouselItem>
           </CarouselContent>
-          {
-            data.images.length > 1 &&
-            <>
-              <CarouselPrevious className="absolute left-4"/>
-              <CarouselNext className="absolute right-4" />
-            </>
-          }
         </Carousel>
       </CardImageContainer>
       <CardHeader>

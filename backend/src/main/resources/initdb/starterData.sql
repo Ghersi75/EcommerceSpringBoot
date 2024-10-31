@@ -2,7 +2,10 @@ CREATE TABLE store_item (
   id SERIAL PRIMARY KEY,
   title VARCHAR(50) NOT NULL,
   description VARCHAR(255) NOT NULL,
-  display_order INT NOT NULL
+  display_order INT NOT NULL,
+  price INT NOT NULL,
+  discount_price INT DEFAULT NULL,
+  thumbnail_image_link TEXT NOT NULL
   -- TODO: Maybe add a thumbnail here for the main page
   -- Surprised I didn't think about this earlier, now frontend is gonna be broken 😭
 );
@@ -59,10 +62,10 @@ CREATE TABLE store_item_image (
 
 
 -- Insert store items
-INSERT INTO store_item (title, description, display_order)
-  VALUES  ('Classic Shirt', 'Our most popular shirt made of 100% finest quality cotton', 0),
-          ('Basic Shirt', 'Our most basic shirt made of polyester', 1),
-          ('Basic No Picture Shirt', 'Our most basic blue shirt made of cotton', 2);
+INSERT INTO store_item (title, description, display_order, price, discount_price, thumbnail_image_link)
+  VALUES  ('Classic Shirt', 'Our most popular shirt made of 100% finest quality cotton', 0, 1199, 999, 'https://i.pinimg.com/736x/2e/88/a5/2e88a52be17ccbce0306aae0a295138c.jpg'),
+          ('Basic Shirt', 'Our most basic shirt made of polyester', 1, 1299, NULL, 'https://i.pinimg.com/736x/2e/88/a5/2e88a52be17ccbce0306aae0a295138c.jpg'),
+          ('Basic No Picture Shirt', 'Our most basic blue shirt made of cotton', 2, 1399, 499, 'https://i.pinimg.com/736x/2e/88/a5/2e88a52be17ccbce0306aae0a295138c.jpg');
 -- Shirt 1 Classics, Shirt 1 Seasonal, Shirt 2 Classics, Shirt 2 Seasonal
 INSERT INTO item_modifier (name, item_id, display_order) 
   VALUES  ('Classics', 1, 0),

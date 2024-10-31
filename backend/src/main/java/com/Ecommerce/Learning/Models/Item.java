@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 // import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,5 +34,14 @@ public class Item {
   @JsonManagedReference
   private List<ItemModifier> itemModifiers;
 
+  @Column(name = "display_order")
   private int displayOrder;
+
+  private int price;
+
+  @Column(name = "discount_price", nullable = true)
+  private Integer discountPrice;
+
+  @Column(name = "thumbnail_image_link")
+  private String thumbnailImageLink;
 }

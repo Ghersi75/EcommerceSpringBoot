@@ -10,4 +10,7 @@ public class ItemDTOWithoutRelationship {
   private String title;
   private String description;
   private int displayOrder;
+  private int price;
+  private Integer discountPrice;
+  private String thumbnailImageLink;
 }

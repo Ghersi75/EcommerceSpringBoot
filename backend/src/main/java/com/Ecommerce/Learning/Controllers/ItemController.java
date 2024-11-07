@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Ecommerce.Learning.DTOs.Item.ItemDTOWithoutRelationship;
 import com.Ecommerce.Learning.Models.Item;
 import com.Ecommerce.Learning.Services.ItemService;
 
@@ -29,7 +30,7 @@ public class ItemController {
   }
 
   @GetMapping("")
-  public List<Item> GetAllItemsHandler() {
-    return this.itemService.GetAllItems();
+  public List<ItemDTOWithoutRelationship> GetAllItemsHandler() {
+    return this.itemService.GetAllItemsNotDetailed();
   }
 }

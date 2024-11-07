@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.Ecommerce.Learning.DTOs.Item.ItemDTOWithoutRelationship;
 import com.Ecommerce.Learning.Models.Item;
 import com.Ecommerce.Learning.Repository.ItemRepository;
 
@@ -19,7 +20,7 @@ public class ItemService {
     return this.itemRepository.findById(id).orElse(null);
   }
 
-  public List<Item> GetAllItems() {
-    return this.itemRepository.findAll();
+  public List<ItemDTOWithoutRelationship> GetAllItemsNotDetailed() {
+    return this.itemRepository.findAllNotDetailed();
   }
 }

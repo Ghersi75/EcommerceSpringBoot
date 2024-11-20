@@ -8,8 +8,19 @@ services:
       POSTGRES_DB: ecommerce
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-    ports:
-    # Forward host port 5433 to docker port 5432 just in case of local conflicts
-      - "5433:5432"
     volumes:
       - ./src/main/resources/initdb:/docker-entrypoint-initdb.d
+  
+  backend:
+    image: maven:3.9.9-amazoncorretto-17
+    container_name: spring_backend
+    working_dir: /app
+    command: mvn spring-boot:run
+    volumes:
+      - .:/app
+      # https://stackoverflow.com/questions/63138495/what-is-m2-folder-how-can-i-configure-it-if-i-have-two-repos-with-two-differen
+      - ~/.m2:/root/.m2  # Cache Maven dependencies
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db

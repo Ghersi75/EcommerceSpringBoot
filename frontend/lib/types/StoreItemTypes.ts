@@ -1,12 +1,9 @@
-interface Image {
-  "id": number,
-  "imageLink": string,
-  "displayOrder": number
-}
-
-export interface ItemData {
+export interface StoreItemData {
   id: string,
   title: string,
   description: string,
-  images: Image[]
+  displayOrder: number,
+  price: number,
+  discountPrice: number | null,
+  thumbnailImageLink: string
 }

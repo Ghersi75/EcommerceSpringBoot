@@ -18,3 +18,9 @@ export function compareDisplayOrder<T extends DisplayOrderInterface> (item1: T, 
     return 1
   }
 }
+
+
+// TODO: Make backend return formatted price
+export function formatPrice(price: number) {
+  return `\$${price / 100}`
+}

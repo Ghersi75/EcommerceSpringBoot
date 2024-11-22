@@ -55,7 +55,21 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+			// Gradient "borrowed" from fabletics size not available
+			// Example: https://www.fabletics.com/products/THE-ONE-JOGGER-PT2252152-8348?psrc=sign_up_confirmation_24pants&gridGender=male
+			// Keep in mind these items come and go from fabletics site, but any item with a missing size has a gradient that has a line going from bottom left to top right of the button/input
+			backgroundImage: (theme) => ({
+				'unavailable-size': `linear-gradient(
+          to right bottom,
+          var(--gradient-start),
+          var(--gradient-start) 48%,
+          var(--gradient-mid) 49%,
+          var(--gradient-mid) 51%,
+          var(--gradient-start) 52%,
+          var(--gradient-start)
+        )`
+			})
   	}
   },
   plugins: [require("tailwindcss-animate")],
